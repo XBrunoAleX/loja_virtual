@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cadastro</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/shop-homepage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Classes Default do Bootstrap, por isso tanto atributo nas tags -->
+    
+    <div class="row">
+        <div class="col-sm-5" style="margin-left:50px;border-right: 1px solid black">
+            <form method="post" action="/autenticar">
+                <h1>Fazer Login</h1>
+                <div class="form-group">
+                    <label for="exampleInputEmail">Email</label>
+                    <input name="email" class="form-control" id="exampleInputEmail" type="email"
+                          placeholder="Digite seu email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Senha</label>
+                    <input name="senha" class="form-control" id="exampleInputPassword1" type="password"
+                        placeholder="Sua senha">
+                </div>
+
+                <?php if($this->view->login == 'erro') {?>
+                    <small class="form-text text-danger">Usuario ou senha incorretos</small>
+                <?php } ?>
+
+                <button class="btn btn-primary btn-block" type="submit">Login</button>
+            </form>
+        </div>
+
+
+        <div class="col-sm-5">
+            <form method="post" action="/cadastrar">
+                <h1>Fazer Casastro no sistema:</h1>
+                <div class="form-group ">
+                    <label for="exampleInputnome">Nome compelto</label>
+                    <input name="nome_cad" class="form-control" id="exampleInputnome" type="text"
+                          placeholder="Digite nome completo">
+                </div>
+                <div class="form-group ">
+                    <label for="exampleInputEmail">Email</label>
+                    <input name="email_cad" class="form-control" id="exampleInputEmail" type="email"
+                          placeholder="Digite seu email">
+                </div>
+                <div class="form-group ">
+                    <label for="exampleInputPassword1">Senha</label>
+                    <input name="senha_cad" class="form-control" id="exampleInputPassword1" type="password"
+                        placeholder="Sua senha">
+                </div>
+                <div class="form-group ">
+                    <label for="exampleInputPassword2">Comfirme a Senha</label>
+                    <input name="confirm_cad" class="form-control" id="exampleInputPassword2" type="password"
+                        placeholder="Confirme sua senha">
+                </div>
+                <?php if(isset($_GET['senhas'])){ if($_GET['senhas']=='erro') {?>
+                    <small class="form-text text-danger">Senhas incompativeis</small>
+                <?php }else if($_GET['senhas']=='dados'){ ?>
+                    <small class="form-text text-danger">Preencha os dados com mais de 5 caracteres</small>
+                <?php }} ?>
+                <button class="btn btn-primary btn-block" type="submit">Cadastrar</button>
+            </form>
+            <?php 
+             echo $this->view->conectado;
+            ?>
+                    
+               
+
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

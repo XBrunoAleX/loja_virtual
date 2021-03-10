@@ -1,5 +1,9 @@
-RewriteEngine on
-RewriteCond %{HTTP_HOST} ^lojavirtualprog.000webhostapp.com$ [NC,OR]
-RewriteCond %{HTTP_HOST} ^www.lojavirtualprog.000webhostapp.com$
-RewriteCond %{REQUEST_URI} !public/
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^loja-virtual-de-teste.herokuapp.com/$ [NC,OR]
+
+RewriteCond %{HTTP_HOST} ^https://loja-virtual-de-teste.herokuapp.com/$
+
+RewriteCond %{REQUEST_URI} !public/
+
 RewriteRule (.*) /public/$1 [L]

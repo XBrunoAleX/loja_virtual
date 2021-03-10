@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^lojavirtualprog.000webhostapp.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.lojavirtualprog.000webhostapp.com$
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) /public/$1 [L]
